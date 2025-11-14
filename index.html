@@ -4,21 +4,22 @@
     .github-copyright-banner, .github-copyright-banner a { display: none !important; }
     body { margin: 0; padding: 0; background: white; font-family: sans-serif; }
     
-    /* Safe top zone for the player */
+    /* PLAYER: Extra tall container, centered, no cutoff */
     .player-container {
       width: 100%;
-      padding: 40px 0 20px 0;
+      padding: 50px 0 30px 0;   /* 50px top, 30px bottom = 80px safe zone */
       text-align: center;
       background: white;
-      position: relative;
-      z-index: 10;
     }
     
+    /* MUSIC PLAYER CONTROL: Larger, rounded, fully visible */
     audio {
-      width: 180px;
-      height: 54px;
-      border-radius: 27px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+      width: 200px;               /* Bigger button */
+      height: 60px;               /* Taller to show full controls */
+      border-radius: 30px;        /* Perfect pill shape */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border: none;
+      background: #fff;
     }
     
     img {
@@ -44,12 +45,12 @@
 </head>
 <body>
 
-  <!-- PLAYER: Full width container, centered button, lots of padding -->
+  <!-- PLAYER: Big, centered, fully visible on iPhone -->
   <div class="player-container">
     <audio src=Song.mp3 loop controls autoplay></audio>
   </div>
 
-  <!-- CONTENT: Starts after player, no overlap -->
+  <!-- CONTENT: Everything else unchanged -->
   <img src=Pic1.HEIC>
   <h1>Dear Abby,</h1>
   <p>Thank you for choosing me to be the lucky recipient of your kindness, grace, and purity.</p>
