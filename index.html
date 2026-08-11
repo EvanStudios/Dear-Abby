@@ -45,8 +45,25 @@
   <img src=Pic1.HEIC>
   <div class="caption">Our first picture together - August 30th, 2025 - Bristol Renaissance Faire</div>
 <div id=daysCounter></div><script>const pastDate = new Date('2020-01-01'); document.getElementById('daysCounter').innerText = `Days since: ${Math.floor((new Date() - pastDate) / (1000 60 60 24))}`;</script>
-  ------
+  --------------------
   <div id="anniversary-clock"></div>
+
+<style>
+    #anniversary-clock {
+        font-family: 'Georgia', serif;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #d6336c; /* Romantic deep pink */
+        text-align: center;
+        padding: 20px;
+        background: rgba(255, 240, 245, 0.5); /* Soft lavender blush background */
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(214, 51, 108, 0.2);
+        display: inline-block;
+        margin: 20px auto;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+</style>
 
 <script>
 function updateClock() {
@@ -59,7 +76,6 @@ function updateClock() {
 
     if (days < 0) {
         months--;
-        // Get the number of days in the previous month
         const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
         days += prevMonth.getDate();
     }
@@ -73,11 +89,11 @@ function updateClock() {
         `${years} Years, ${months} Months, ${days} Days`;
 }
 
-// Update the clock immediately, and then once every day
 updateClock();
 setInterval(updateClock, 1000 * 60 * 60 * 24);
 </script>
-  -----
+
+  --------------------
 <h1>Dear Abby,</h1>
   <p> You are the one who is amazing with words. However, I will do my best in writing a letter to a writer—no AI handicap.
   <p>Since our first three-hour call, I knew you were incredibly special. We talked about our similar life journeys and how we had nearly crossed paths many times.
