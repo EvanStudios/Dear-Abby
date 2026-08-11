@@ -23,43 +23,30 @@
       margin-top: 0; 
       display: block; 
     }
-    h1 { 
-      text-shadow: 1px 1px 2px gray; 
-      font-size: 4em; 
-      margin: 20px 0; 
-    }
-    p { 
-      font-size: 2em; 
-      margin: 15px 0; 
-    }
     .caption {
-      font-size: 1.3em;    /* Very small text */
-      color: #555;         /* Subtle gray */
+      font-size: 1.3em;
+      color: #555;
       font-style: italic;
       margin: 8px 0 25px 0;
     }
   </style>
 </head>
 <body>
-  <audio src=Song.mp3 loop controls autoplay></audio>
-  <img src=Pic1.HEIC>
+  <audio src="Song.mp3" loop controls autoplay></audio>
+  <img src="Pic1.HEIC">
   <div class="caption">Our first picture together - August 30th, 2025 - Bristol Renaissance Faire</div>
-
-
-  
   
   <div id="anniversary-container">
     <div id="anniversary-clock"></div>
     <div id="anniversary-subtitle">Since the day I met you</div>
-</div>
+  </div>
 
-<style>
+  <style>
     #anniversary-container {
         text-align: center;
         padding: 25px 35px;
-        /* Elegant golden gradient for a subtle sheen */
         background: linear-gradient(135deg, #fff8e7 0%, #ffd700 50%, #fff8e7 100%);
-        border: 2px solid #d4af37; /* Metallic gold border */
+        border: 2px solid #d4af37;
         border-radius: 15px;
         box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         display: inline-block;
@@ -70,7 +57,7 @@
         font-family: 'Georgia', serif;
         font-size: 2rem;
         font-weight: bold;
-        color: #1a365d; /* Deep midnight blue */
+        color: #1a365d;
         text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
     }
 
@@ -78,86 +65,76 @@
         font-family: 'Georgia', serif;
         font-size: 1rem;
         font-style: italic;
-        color: #4a5568; /* Dark gray */
+        color: #4a5568;
         margin-top: 8px;
     }
-</style>
+  </style>
 
-<script>
-function updateClock() {
-    const startDate = new Date('2025-08-14T00:00:00');
-    const now = new Date();
-    
-    let years = now.getFullYear() - startDate.getFullYear();
-    let months = now.getMonth() - startDate.getMonth();
-    let days = now.getDate() - startDate.getDate();
+  <script>
+    function updateClock() {
+        const startDate = new Date('2025-08-14T00:00:00');
+        const now = new Date();
+        
+        let years = now.getFullYear() - startDate.getFullYear();
+        let months = now.getMonth() - startDate.getMonth();
+        let days = now.getDate() - startDate.getDate();
 
-    if (days < 0) {
-        months--;
-        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-        days += prevMonth.getDate();
+        if (days < 0) {
+            months--;
+            const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+            days += prevMonth.getDate();
+        }
+
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+
+        document.getElementById('anniversary-clock').innerText = 
+            `${years} Years, ${months} Months, ${days} Days`;
     }
 
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
-
-    document.getElementById('anniversary-clock').innerText = 
-        `${years} Years, ${months} Months, ${days} Days`;
-}
-
-updateClock();
-setInterval(updateClock, 1000 * 60 * 60 * 24);
-</script>
-
-
-
+    updateClock();
+    setInterval(updateClock, 1000 * 60 * 60 * 24);
+  </script>
 
   <div style="text-align: center; margin-top: 20px;">
+    <a href="christmas-letter.html" class="romantic-button blue-button">Christmas 2025 Letter</a>
     <a href="letter.html" class="romantic-button">One Year Dating Anniversary Letter</a>
-</div>
+  </div>
 
-<style>
+  <style>
     .romantic-button {
         display: inline-block;
         padding: 12px 25px;
+        margin: 0 10px;
         font-family: 'Georgia', serif;
         font-size: 1.1rem;
         font-weight: bold;
-        color: #1a365d; /* Deep midnight blue to match your clock */
+        color: #1a365d;
         background: linear-gradient(135deg, #fff8e7 0%, #ffd700 50%, #fff8e7 100%);
         border: 2px solid #d4af37;
         border-radius: 25px;
-        text-decoration: none; /* Removes the underline from the link */
+        text-decoration: none;
         box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
+    .romantic-button.blue-button {
+        color: #ffffff;
+        background: linear-gradient(135deg, #4a90e2 0%, #1a365d 100%);
+        border: 2px solid #4a90e2;
+        box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+    }
+
     .romantic-button:hover {
-        transform: scale(1.05); /* Slightly enlarges the button on hover */
+        transform: scale(1.05);
         box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
     }
-</style>
 
-
-  
-  <p>
-<h1>Dear Abby,</h1>
-  <p> You are the one who is amazing with words. However, I will do my best in writing a letter to a writer—no AI handicap.
-  <p>Since our first three-hour call, I knew you were incredibly special. We talked about our similar life journeys and how we had nearly crossed paths many times.
-    This was followed by begging for details of your time at the Galactic Starcruiser (I promise that is not the only reason I am with you). 
-    I was immediately swept up by your intelligence, your passion, and your genuineness. I have never been so instantly hooked by a person I had just met. 
-    After our first call I sat there completely stunned. Following some reflection time, I called my Ma and was barely able to formulate complete sentences. 
-    I could not stop talking about you. I told her that I had never had a better call in my life, and that you were someone special. I was sleepless that night because I was too busy wondering if you were real.</p>
-  <p>In the months that followed, your realness was confirmed a thousand-fold. Instead of work giving me fullfilment and joy, it quickly became you. You became the most precious, cherished, and important part of my life. Everyday I am discovering more and more, just how shiny you are. You radiate with a spark of life that I will never tire of. That spark beams through your eyes, which are the perfect blend of the glistening Emerald City and Willy Wonka's Chocolate Factory. </p>
-  <p>I feel a tremendous amount of peace at the thought of going through life's hurdles with you. I admire so many things about you, and your ability to communicate so beautifully with me is one of them. I respect and trust you so much, and I am confident we will be ready for whatever challenges life throws at us. Regardless of what is happening in the chaotic mess that is life, you always make me excited for tomorrow. </p>
-  <p>Thank you for choosing me to be the lucky recipient of your kindess, grace, and love. I believe with all my heart that when I asked God to take the wheel, He showed me the way to you. I have never felt this way about another person, which is both incredibly exciting and immensely daunting. Navigating a relationship as real and as pure as this is entirely new to me, and doing right by you is the most persistent thought in my mind. I truly do not know if I deserve you, but I will spend however long we have together earning your head on my shoulder. I am very much in love with you, I appreciate you so much, and I promise to never take you for granted.   </p>
-  <p>If you ever find yourself doubting the kind of person you are, remember this. You have a gracious, generous, thoughtful, caring, kind, and beautiful soul. You are a loving person who puts other's needs before your own. Your warmth is a magnet for those who have the privilege of being in your life. I do not think you fully realize the depths of your kind heart, nor how rare and precious it is. You encourage me, without words, to be the best person I can be. Thank you for completing my life in the most humble and genuine way possible. </p>
-  <p>I could go on forever about you. There are more feelings in my heart than words to describe them. 
-  <p>Every Christmas season please remember that your laughter rings brighter than Santa's sleighbells, and your heart is warm enough to melt the North Pole.</p>
-  <p>I love you very much Abby,</p>
-  <p>- Love, Evan</p>
-<div class="caption">Merry Christmas 2025</div>
+    .romantic-button.blue-button:hover {
+        box-shadow: 0 6px 15px rgba(74, 144, 226, 0.6);
+    }
+  </style>
 </body>
 </html>
