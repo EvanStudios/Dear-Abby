@@ -44,28 +44,34 @@
       background: #1a365d;
       color: white;
     }
-    /* Elegant Audio Wrapper */
-    .audio-container {
+    /* Elegant Audio Button Styling */
+    #audio-control {
       display: inline-block;
       margin: 20px auto;
-      padding: 10px 20px;
+      padding: 10px 25px;
+      font-family: 'Georgia', serif;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #1a365d;
       background: linear-gradient(135deg, #fff8e7 0%, #ffd700 50%, #fff8e7 100%);
       border: 2px solid #d4af37;
-      border-radius: 30px;
+      border-radius: 25px;
+      cursor: pointer;
       box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+      transition: transform 0.2s ease;
     }
-    audio {
-      display: block;
-      height: 40px;
+    #audio-control:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
-  <!-- Elegant Audio Player -->
-  <div class="audio-container">
-    <audio src="Song.mp3" controls loop></audio>
-  </div>
+  <!-- Hidden Audio Element -->
+  <audio id="bg-music" src="Song.mp3" loop preload="auto"></audio>
+
+  <!-- Elegant Custom Button -->
+  <div id="audio-control" onclick="toggleAudio()">▶ Beauty and the Beast</div>
 
   <h1>Dear Abby,</h1>
   <p>You are the one who is amazing with words. However, I will do my best in writing a letter to a writer—no AI handicap.</p>
@@ -83,5 +89,22 @@
 
   <a href="index.html" class="back-button">Back to Home</a>
 
+  <script>
+    const audio = document.getElementById('bg-music');
+    const control = document.getElementById('audio-control');
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          control.innerText = "⏸ Beauty and the Beast";
+        }).catch(error => {
+          alert("Could not play audio. Please check that Song.mp3 is in the correct folder.");
+        });
+      } else {
+        audio.pause();
+        control.innerText = "▶ Beauty and the Beast";
+      }
+    }
+  </script>
 </body>
 </html>
