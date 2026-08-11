@@ -4,19 +4,10 @@
     .github-copyright-banner, .github-copyright-banner a { display: none !important; }
     body { 
       margin: 0; 
-      padding-top: 100px; 
+      padding-top: 40px; 
       background: white; 
       text-align: center; 
       font-family: 'Georgia', serif;
-    }
-    audio { 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      z-index: 99; 
-      width: 100%; 
-      height: 80px; 
-      background: white; 
     }
     h1 { 
       text-shadow: 1px 1px 2px gray; 
@@ -28,7 +19,7 @@
       line-height: 1.6;
       margin: 20px auto; 
       max-width: 800px;
-      text-align: center; /* Changed from left to center */
+      text-align: center;
       padding: 0 20px;
     }
     .caption {
@@ -39,7 +30,7 @@
     }
     .back-button {
       display: inline-block;
-      margin: 30px 0 60px 0;
+      margin: 10px 0 60px 0;
       padding: 10px 20px;
       font-size: 1.1rem;
       font-weight: bold;
@@ -53,14 +44,37 @@
       background: #1a365d;
       color: white;
     }
+    /* Elegant Audio Button Styling */
+    #audio-control {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 10px 25px;
+      font-family: 'Georgia', serif;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #1a365d;
+      background: linear-gradient(135deg, #fff8e7 0%, #ffd700 50%, #fff8e7 100%);
+      border: 2px solid #d4af37;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+      transition: transform 0.2s ease;
+    }
+    #audio-control:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
-  <audio src="Song.mp3" loop controls autoplay></audio>
+
+  <!-- Hidden Audio Element -->
+  <audio id="bg-music" src="Song.mp3" loop></audio>
+
+  <!-- Elegant Custom Button -->
+  <div id="audio-control" onclick="toggleAudio()">▶ Beauty and the Beast</div>
 
   <h1>Dear Abby,</h1>
   <p>You are the one who is amazing with words. However, I will do my best in writing a letter to a writer—no AI handicap.</p>
   <p>Since our first three-hour call, I knew you were incredibly special. We talked about our similar life journeys and how we had nearly crossed paths many times. This was followed by begging for details of your time at the Galactic Starcruiser (I promise that is not the only reason I am with you). I was immediately swept up by your intelligence, your passion, and your genuineness. I have never been so instantly hooked by a person I had just met. After our first call I sat there completely stunned. Following some reflection time, I called my Ma and was barely able to formulate complete sentences. I could not stop talking about you. I told her that I had never had a better call in my life, and that you were someone special. I was sleepless that night because I was too busy wondering if you were real.</p>
   <p>In the months that followed, your realness was confirmed a thousand-fold. Instead of work giving me fulfillment and joy, it quickly became you. You became the most precious, cherished, and important part of my life. Everyday I am discovering more and more, just how shiny you are. You radiate with a spark of life that I will never tire of. That spark beams through your eyes, which are the perfect blend of the glistening Emerald City and Willy Wonka's Chocolate Factory.</p>
-  <p>I feel a tremendous amount of peace at the thought of going through life's hurdles with you. I admire so many things about you, and your ability to communicate so beautifully with me is one of them. I respect and trust you so much, and I am confident we will be ready for whatever challenges life throws at us. Regardless of what is happening in the chaotic mess that is life, you always make me excited for tomorrow.</p>
-  <p>Thank you for choosing me to be the lucky recipient of your kindness, grace, and love. I believe with all my heart that when I asked God to take the wheel, He showed me the way to you. I have never felt this way about another person, which is both incredibly exciting and immensely daunting. Navigating a relationship as real and as pure as this is entirely new to me, and doing right by you is the most persistent thought in my mind. I truly do not know if I deserve you,
+  <p>I feel a tremendous amount of peace at the thought of going through life's hurdles with you. I admire so many things about you, and your ability to communicate so beautifully with me is one of them. I respect and trust you so much, and
