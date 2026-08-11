@@ -44,7 +44,7 @@
       background: #1a365d;
       color: white;
     }
-    /* Elegant Audio Button Styling */
+    /* Elegant Blue Audio Button Styling */
     #audio-control {
       display: inline-block;
       margin: 20px auto;
@@ -52,23 +52,24 @@
       font-family: 'Georgia', serif;
       font-size: 1.1rem;
       font-weight: bold;
-      color: #1a365d;
-      background: linear-gradient(135deg, #fff8e7 0%, #ffd700 50%, #fff8e7 100%);
-      border: 2px solid #d4af37;
+      color: #ffffff;
+      background: linear-gradient(135deg, #4a90e2 0%, #1a365d 100%);
+      border: 2px solid #4a90e2;
       border-radius: 25px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
       transition: transform 0.2s ease;
     }
     #audio-control:hover {
       transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(74, 144, 226, 0.6);
     }
   </style>
 </head>
 <body>
 
   <!-- Hidden Audio Element -->
-  <audio id="bg-music" src="Song.mp3" loop preload="auto"></audio>
+  <audio id="bg-music" src="Song.mp3" loop></audio>
 
   <!-- Elegant Custom Button -->
   <div id="audio-control" onclick="toggleAudio()">▶ Beauty and the Beast</div>
@@ -95,11 +96,8 @@
 
     function toggleAudio() {
       if (audio.paused) {
-        audio.play().then(() => {
-          control.innerText = "⏸ Beauty and the Beast";
-        }).catch(error => {
-          alert("Could not play audio. Please check that Song.mp3 is in the correct folder.");
-        });
+        audio.play();
+        control.innerText = "⏸ Beauty and the Beast";
       } else {
         audio.pause();
         control.innerText = "▶ Beauty and the Beast";
