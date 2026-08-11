@@ -4,23 +4,14 @@
     .github-copyright-banner, .github-copyright-banner a { display: none !important; }
     body { 
       margin: 0; 
-      padding-top: 90px; 
+      padding-top: 20px; 
       background: white; 
       text-align: center; 
-    }
-    audio { 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      z-index: 99; 
-      width: 100%; 
-      height: 80px; 
-      background: white; 
     }
     img { 
       width: 100%; 
       height: auto; 
-      margin-top: 0; 
+      margin-top: 20px; 
       display: block; 
     }
     .caption {
@@ -29,10 +20,36 @@
       font-style: italic;
       margin: 8px 0 25px 0;
     }
+    /* Elegant Blue Audio Button Styling */
+    #audio-control {
+      display: inline-block;
+      margin: 10px auto;
+      padding: 10px 25px;
+      font-family: 'Georgia', serif;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffffff;
+      background: linear-gradient(135deg, #4a90e2 0%, #1a365d 100%);
+      border: 2px solid #4a90e2;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+      transition: transform 0.2s ease;
+    }
+    #audio-control:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(74, 144, 226, 0.6);
+    }
   </style>
 </head>
 <body>
-  <audio src="Song.mp3" loop controls autoplay></audio>
+
+  <!-- Hidden Audio Element -->
+  <audio id="bg-music" src="Song.mp3" loop></audio>
+
+  <!-- Elegant Custom Button -->
+  <div id="audio-control" onclick="toggleAudio()">▶ Beauty and the Beast</div>
+
   <img src="Pic1.HEIC">
   <div class="caption">Our first picture together - August 30th, 2025 - Bristol Renaissance Faire</div>
   
@@ -96,10 +113,23 @@
 
     updateClock();
     setInterval(updateClock, 1000 * 60 * 60 * 24);
+
+    const audio = document.getElementById('bg-music');
+    const control = document.getElementById('audio-control');
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+        control.innerText = "⏸ Beauty and the Beast";
+      } else {
+        audio.pause();
+        control.innerText = "▶ Beauty and the Beast";
+      }
+    }
   </script>
 
   <div style="text-align: center; margin-top: 20px;">
-    <a href="christmas-2025-letter.html" class="romantic-button blue-button">Christmas 2025 Letter</a>
+    <a href="Christmas-2025-letter.html" class="romantic-button blue-button">Christmas 2025 Letter</a>
     <a href="letter.html" class="romantic-button">One Year Dating Anniversary Letter</a>
   </div>
 
@@ -131,13 +161,3 @@
         transform: scale(1.05);
         box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
     }
-
-    .romantic-button.blue-button:hover {
-        box-shadow: 0 6px 15px rgba(74, 144, 226, 0.6);
-    }
-  </style>
-
-  <!-- Spacer to add blank space at the bottom -->
-  <div style="height: 150px;"></div>
-</body>
-</html>
