@@ -10,6 +10,12 @@
       font-family: 'Georgia', serif;
       color: #ffffff; /* White text for the letter */
     }
+    img { 
+      width: 100%; 
+      height: auto; 
+      margin-top: 20px; 
+      display: block; 
+    }
     h1 { 
       text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
       font-size: 4em; 
@@ -25,9 +31,9 @@
     }
     .caption {
       font-size: 1.3em;
-      color: #cccccc; /* Light gray for the caption */
+      color: #ffffff; /* White text for the caption */
       font-style: italic;
-      margin: 25px 0;
+      margin: 8px 0 25px 0;
     }
     .back-button {
       display: inline-block;
@@ -70,10 +76,14 @@
 <body>
 
   <!-- Hidden Audio Element -->
-<audio id="bg-music" src="Song.mp3" loop></audio>
+  <audio id="bg-music" src="Song.mp3" loop></audio>
 
   <!-- Elegant Custom Button -->
   <div id="audio-control" onclick="toggleAudio()">▶ Beauty and the Beast</div>
+
+  <!-- New Photo and Caption -->
+  <img src="IMG_1755.jpeg">
+  <div class="caption">November 22, 2025</div>
 
   <h1>Dear Abby,</h1>
   <p>You are the one who is amazing with words. However, I will do my best in writing a letter to a writer—no AI handicap.</p>
@@ -82,29 +92,4 @@
   <p>I feel a tremendous amount of peace at the thought of going through life's hurdles with you. I admire so many things about you, and your ability to communicate so beautifully with me is one of them. I respect and trust you so much, and I am confident we will be ready for whatever challenges life throws at us. Regardless of what is happening in the chaotic mess that is life, you always make me excited for tomorrow.</p>
   <p>Thank you for choosing me to be the lucky recipient of your kindness, grace, and love. I believe with all my heart that when I asked God to take the wheel, He showed me the way to you. I have never felt this way about another person, which is both incredibly exciting and immensely daunting. Navigating a relationship as real and as pure as this is entirely new to me, and doing right by you is the most persistent thought in my mind. I truly do not know if I deserve you, but I will spend however long we have together earning your head on my shoulder. I am very much in love with you, I appreciate you so much, and I promise to never take you for granted.</p>
   <p>If you ever find yourself doubting the kind of person you are, remember this. You have a gracious, generous, thoughtful, caring, kind, and beautiful soul. You are a loving person who puts other's needs before your own. Your warmth is a magnet for those who have the privilege of being in your life. I do not think you fully realize the depths of your kind heart, nor how rare and precious it is. You encourage me, without words, to be the best person I can be. Thank you for completing my life in the most humble and genuine way possible.</p>
-  <p>I could go on forever about you. There are more feelings in my heart than words to describe them.</p>
-  <p>Every Christmas season please remember that your laughter rings brighter than Santa's sleighbells, and your heart is warm enough to melt the North Pole.</p>
-  <p>I love you very much Abby,</p>
-  <p>- Love, Evan</p>
-
-  <div class="caption">Merry Christmas 2025</div>
-
-<a href="index.html" class="back-button">Back to Home</a>
-
-  <script>
-    const audio = document.getElementById('bg-music');
-    const control = document.getElementById('audio-control');
-
-    function toggleAudio() {
-      if (audio.paused) {
-        audio.play();
-        control.innerText = "⏸ Beauty and the Beast";
-      } else {
-        audio.pause();
-        control.innerText = "▶ Beauty and the Beast";
-      }
-    }
-  </script>
-
-</body>
-</html>
+  <p>I could go on forever about you. There
