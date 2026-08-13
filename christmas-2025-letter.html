@@ -5,12 +5,13 @@
     body { 
       margin: 0; 
       padding-top: 40px; 
-      background: white; 
+      background: #0d1117; /* GitHub Dark Mode Background */
       text-align: center; 
       font-family: 'Georgia', serif;
+      color: #ffffff; /* White text for the letter */
     }
     h1 { 
-      text-shadow: 1px 1px 2px gray; 
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
       font-size: 4em; 
       margin: 20px 0; 
     }
@@ -24,7 +25,7 @@
     }
     .caption {
       font-size: 1.3em;
-      color: #555;
+      color: #cccccc; /* Light gray for the caption */
       font-style: italic;
       margin: 25px 0;
     }
@@ -34,15 +35,15 @@
       padding: 10px 20px;
       font-size: 1.1rem;
       font-weight: bold;
-      color: #1a365d;
+      color: #ffffff;
       text-decoration: none;
-      border: 2px solid #1a365d;
+      border: 2px solid #ffffff;
       border-radius: 25px;
       transition: background 0.2s, color 0.2s;
     }
     .back-button:hover {
-      background: #1a365d;
-      color: white;
+      background: #ffffff;
+      color: #0d1117;
     }
     /* Elegant Blue Audio Button Styling */
     #audio-control {
@@ -69,7 +70,7 @@
 <body>
 
   <!-- Hidden Audio Element -->
-  <audio id="bg-music" src="Song.mp3" loop></audio>
+<audio id="bg-music" src="Song.mp3" loop></audio>
 
   <!-- Elegant Custom Button -->
   <div id="audio-control" onclick="toggleAudio()">▶ Beauty and the Beast</div>
@@ -85,10 +86,10 @@
   <p>Every Christmas season please remember that your laughter rings brighter than Santa's sleighbells, and your heart is warm enough to melt the North Pole.</p>
   <p>I love you very much Abby,</p>
   <p>- Love, Evan</p>
-  
+
   <div class="caption">Merry Christmas 2025</div>
 
-  <a href="index.html" class="back-button">Back to Home</a>
+<a href="index.html" class="back-button">Back to Home</a>
 
   <script>
     const audio = document.getElementById('bg-music');
@@ -104,5 +105,6 @@
       }
     }
   </script>
+
 </body>
 </html>
