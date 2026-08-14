@@ -95,7 +95,7 @@
 
   <div class="controls-container">
     <!-- Elegant Custom Button -->
-    <div class="audio-control" onclick="toggleAudio('bg-music', this, 'Her')">▶🎶Her</div>
+    <div class="audio-control" onclick="toggleAudio('bg-music', this, 'Her')">▶🎶 Her</div>
     <!-- New Recording Button -->
     <div class="audio-control" onclick="toggleAudio('recording-audio', document.getElementById('rec-btn'), 'Recording')" id="rec-btn">▶ Recording</div>
     <input type="range" min="0" max="100" value="0" class="slider" id="recording-slider" oninput="seekAudio()">
@@ -177,7 +177,7 @@
         if (audioId = 'recording-audio') {
           if (bgMusic.paused) {
             bgMusic.play();
-            herBtn.innerText = "⏸🎶Her";
+            herBtn.innerText = "⏸ 🎶Her";
           }
           if (bgMusicGain) bgMusicGain.gain.value = 0.07; // Lower to 7%
         }
