@@ -86,8 +86,8 @@
 <body>
 
   <!-- Hidden Audio Elements -->
-<audio id="bg-music" src="Her.mp3" loop></audio> 
-<audio id="recording-audio" src="Reading-One-Year-Dating-Anniversary.m4a"></audio>
+<audio id="bg-music" src="Her.mp3" loop crossorigin="anonymous"></audio> 
+<audio id="recording-audio" src="Reading-One-Year-Dating-Anniversary.m4a" crossorigin="anonymous"></audio>
 
   <!-- New Photo and Caption -->
   <img src="IMG_4406.jpeg">
@@ -118,10 +118,30 @@
 <a href="index.html" class="back-button">Back to Home</a>
 
   <script>
+    let audioContext;
+    let bgMusicGain;
+    
+    function initAudio() {
+      if (audioContext) return; // Already initialized
+      
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      
+      const bgMusic = document.getElementById('bg-music');
+      const recordingAudio = document.getElementById('recording-audio');
+      
+      const bgSource = audioContext.createMediaElementSource(bgMusic);
+      const recSource = audioContext.createMediaElementSource(recordingAudio);
+      
+      bgMusicGain = audioContext.createGain();
+      
+      bgSource.connect(bgMusicGain).connect(audioContext.destination);
+      recSource.connect(audioContext.destination);
+    }
+
     const bgMusic = document.getElementById('bg-music');
     const recordingAudio = document.getElementById('recording-audio');
     const slider = document.getElementById('recording-slider');
-    const herBtn = document.querySelector('.audio-control'); // First button is Her
+    const herBtn = document.querySelector('.audio-control');
 
     recordingAudio.addEventListener('timeupdate', () => {
       if (recordingAudio.duration) {
@@ -129,9 +149,8 @@
       }
     });
 
-    // Restore music volume when recording ends
     recordingAudio.addEventListener('ended', () => {
-      bgMusic.volume = 1.0;
+      if (bgMusicGain) bgMusicGain.gain.value = 1.0;
       document.getElementById('rec-btn').innerText = "▶ Recording";
     });
 
@@ -142,6 +161,13 @@
     }
 
     function toggleAudio(audioId, element, label) {
+      initAudio(); // Initialize on first user interaction
+      
+      // Resume context if suspended (browser security requirement)
+      if (audioContext.state = 'suspended') {
+        audioContext.resume();
+      }
+
       const audio = document.getElementById(audioId);
 
       if (audio.paused) {
@@ -149,19 +175,18 @@
         element.innerText = "⏸ " + label;
         
         if (audioId = 'recording-audio') {
-          // Automatically start music if not playing
           if (bgMusic.paused) {
             bgMusic.play();
             herBtn.innerText = "⏸ Her";
           }
-          bgMusic.volume = 0.10; // Lower to 10%
+          if (bgMusicGain) bgMusicGain.gain.value = 0.10; // Lower to 10%
         }
       } else {
         audio.pause();
         element.innerText = "▶ " + label;
         
-        if (audioId = 'recording-audio') {
-          bgMusic.volume = 1.0; // Restore volume
+        if (audioId === 'recording-audio') {
+          if (bgMusicGain) bgMusicGain.gain.value = 1.0; // Restore volume
         }
       }
     }
