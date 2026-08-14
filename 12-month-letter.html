@@ -172,12 +172,12 @@
 
       if (audio.paused) {
         audio.play();
-        element.innerText = "⏸ " + label;
+        element.innerText = "⏸🎶 " + label;
         
         if (audioId = 'recording-audio') {
           if (bgMusic.paused) {
             bgMusic.play();
-            herBtn.innerText = "⏸ 🎶Her";
+            herBtn.innerText = "⏸🎶 Her";
           }
           if (bgMusicGain) bgMusicGain.gain.value = 0.07; // Lower to 7%
         }
