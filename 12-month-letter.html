@@ -52,9 +52,9 @@
       color: #0d1117;
     }
     /* Elegant Gold Audio Button Styling */
-    #audio-control {
+    .audio-control {
       display: inline-block;
-      margin: 20px auto;
+      margin: 20px 10px;
       padding: 10px 25px;
       font-family: 'Georgia', serif;
       font-size: 1.1rem;
@@ -67,7 +67,7 @@
       box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
       transition: transform 0.2s ease;
     }
-    #audio-control:hover {
+    .audio-control:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
     }
@@ -75,15 +75,19 @@
 </head>
 <body>
 
-  <!-- Hidden Audio Element -->
+  <!-- Hidden Audio Elements -->
   <audio id="bg-music" src="Her.mp3" loop></audio>
+  <audio id="recording-audio" src="Reading-One-Year-Dating-Anniversary.m4a"></audio>
 
   <!-- Elegant Custom Button -->
-  <div id="audio-control" onclick="toggleAudio()">▶ Her</div>
+  <div class="audio-control" onclick="toggleAudio('bg-music', this, 'Her')">▶ Her</div>
 
   <!-- New Photo and Caption -->
   <img src="IMG_4406.jpeg">
   <div class="caption">Taken on August 9, 2026</div>
+
+  <!-- New Recording Button -->
+  <div class="audio-control" onclick="toggleAudio('recording-audio', this, 'Recording')">▶ Recording</div>
 
   <h1>Dear Abby,</h1>
   <p>It has officially been twelve months since I first met you. When you walked in my first thought was, “Wow, she’s beautiful”. My second thought was, “I’m sure this won’t last long, but I’ll enjoy the time we have”. I was immediately swept up by your smile, the passion you spoke with, and the brightness you brought with you. The calls we had were amazing, but meeting you made it abundantly clear that I needed more of Abby Lammers.<p>
@@ -102,16 +106,24 @@
   <a href="index.html" class="back-button">Back to Home</a>
 
   <script>
-    const audio = document.getElementById('bg-music');
-    const control = document.getElementById('audio-control');
+    function toggleAudio(audioId, element, label) {
+      const audio = document.getElementById(audioId);
+      
+      // Pause other audio if playing
+      if (audioId === 'bg-music') {
+        document.getElementById('recording-audio').pause();
+        document.querySelectorAll('.audio-control')[1].innerText = "▶ Recording";
+      } else {
+        document.getElementById('bg-music').pause();
+        document.querySelectorAll('.audio-control')[0].innerText = "▶ Her";
+      }
 
-    function toggleAudio() {
       if (audio.paused) {
         audio.play();
-        control.innerText = "⏸ Her";
+        element.innerText = "⏸ " + label;
       } else {
         audio.pause();
-        control.innerText = "▶ Her";
+        element.innerText = "▶ " + label;
       }
     }
   </script>
