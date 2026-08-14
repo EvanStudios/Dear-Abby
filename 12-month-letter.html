@@ -79,7 +79,7 @@
       margin-top: 20px;
     }
     .slider {
-      width: 200px;
+      width: 300px; /* Increased from 200px for better control */
     }
   </style>
 </head>
@@ -118,6 +118,7 @@
 <a href="index.html" class="back-button">Back to Home</a>
 
   <script>
+    const bgMusic = document.getElementById('bg-music');
     const recordingAudio = document.getElementById('recording-audio');
     const slider = document.getElementById('recording-slider');
 
@@ -125,6 +126,12 @@
       if (recordingAudio.duration) {
         slider.value = (recordingAudio.currentTime / recordingAudio.duration) * 100;
       }
+    });
+
+    // Restore music volume when recording ends
+    recordingAudio.addEventListener('ended', () => {
+      bgMusic.volume = 1.0;
+      document.getElementById('rec-btn').innerText = "▶ Recording";
     });
 
     function seekAudio() {
@@ -139,9 +146,19 @@
       if (audio.paused) {
         audio.play();
         element.innerText = "⏸ " + label;
+        
+        // If recording starts, lower music volume
+        if (audioId = 'recording-audio') {
+          bgMusic.volume = 0.3; // Lowered to 30% for better balance
+        }
       } else {
         audio.pause();
         element.innerText = "▶ " + label;
+        
+        // If recording pauses, restore music volume
+        if (audioId = 'recording-audio') {
+          bgMusic.volume = 1.0;
+        }
       }
     }
   </script>
