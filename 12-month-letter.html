@@ -79,7 +79,7 @@
       margin-top: 20px;
     }
     .slider {
-      width: 300px; /* Increased from 200px for better control */
+      width: 300px;
     }
   </style>
 </head>
@@ -121,6 +121,7 @@
     const bgMusic = document.getElementById('bg-music');
     const recordingAudio = document.getElementById('recording-audio');
     const slider = document.getElementById('recording-slider');
+    const herBtn = document.querySelector('.audio-control'); // First button is Her
 
     recordingAudio.addEventListener('timeupdate', () => {
       if (recordingAudio.duration) {
@@ -147,17 +148,20 @@
         audio.play();
         element.innerText = "⏸ " + label;
         
-        // If recording starts, lower music volume
         if (audioId = 'recording-audio') {
-          bgMusic.volume = 0.3; // Lowered to 30% for better balance
+          // Automatically start music if not playing
+          if (bgMusic.paused) {
+            bgMusic.play();
+            herBtn.innerText = "⏸ Her";
+          }
+          bgMusic.volume = 0.25; // Lower to 25%
         }
       } else {
         audio.pause();
         element.innerText = "▶ " + label;
         
-        // If recording pauses, restore music volume
         if (audioId = 'recording-audio') {
-          bgMusic.volume = 1.0;
+          bgMusic.volume = 1.0; // Restore volume
         }
       }
     }
