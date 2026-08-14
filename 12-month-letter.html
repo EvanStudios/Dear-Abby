@@ -71,23 +71,35 @@
       transform: scale(1.05);
       box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
     }
+    .controls-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .slider {
+      width: 200px;
+    }
   </style>
 </head>
 <body>
 
   <!-- Hidden Audio Elements -->
-  <audio id="bg-music" src="Her.mp3" loop></audio>
-  <audio id="recording-audio" src="Reading-One-Year-Dating-Anniversary.m4a"></audio>
-
-  <!-- Elegant Custom Button -->
-  <div class="audio-control" onclick="toggleAudio('bg-music', this, 'Her')">▶ Her</div>
+<audio id="bg-music" src="Her.mp3" loop></audio> 
+<audio id="recording-audio" src="Reading-One-Year-Dating-Anniversary.m4a"></audio>
 
   <!-- New Photo and Caption -->
   <img src="IMG_4406.jpeg">
   <div class="caption">Taken on August 9, 2026</div>
 
-  <!-- New Recording Button -->
-  <div class="audio-control" onclick="toggleAudio('recording-audio', this, 'Recording')">▶ Recording</div>
+  <div class="controls-container">
+    <!-- Elegant Custom Button -->
+    <div class="audio-control" onclick="toggleAudio('bg-music', this, 'Her')">▶ Her</div>
+    <!-- New Recording Button -->
+    <div class="audio-control" onclick="toggleAudio('recording-audio', document.getElementById('rec-btn'), 'Recording')" id="rec-btn">▶ Recording</div>
+    <input type="range" min="0" max="100" value="0" class="slider" id="recording-slider" oninput="seekAudio()">
+  </div>
 
   <h1>Dear Abby,</h1>
   <p>It has officially been twelve months since I first met you. When you walked in my first thought was, “Wow, she’s beautiful”. My second thought was, “I’m sure this won’t last long, but I’ll enjoy the time we have”. I was immediately swept up by your smile, the passion you spoke with, and the brightness you brought with you. The calls we had were amazing, but meeting you made it abundantly clear that I needed more of Abby Lammers.<p>
@@ -100,23 +112,29 @@
   <p>Abby, thank you for an entire year of unimaginable joy, peace, and so much laughter. Thank you for accepting me and all of my oddities. Thank you for showing me how deeply I can love another person. Thank you for being you.<p>
   <p>I am thrilled to be renewing my yearly membership with you. I love you sweetheart.</p>
   <p>- Always yours, Evan</p>
-  
+
   <div class="caption" style="margin-top: 40px;">One Year Dating Anniversary 2026</div>
 
-  <a href="index.html" class="back-button">Back to Home</a>
+<a href="index.html" class="back-button">Back to Home</a>
 
   <script>
+    const recordingAudio = document.getElementById('recording-audio');
+    const slider = document.getElementById('recording-slider');
+
+    recordingAudio.addEventListener('timeupdate', () => {
+      if (recordingAudio.duration) {
+        slider.value = (recordingAudio.currentTime / recordingAudio.duration) * 100;
+      }
+    });
+
+    function seekAudio() {
+      if (recordingAudio.duration) {
+        recordingAudio.currentTime = (slider.value / 100) * recordingAudio.duration;
+      }
+    }
+
     function toggleAudio(audioId, element, label) {
       const audio = document.getElementById(audioId);
-      
-      // Pause other audio if playing
-      if (audioId === 'bg-music') {
-        document.getElementById('recording-audio').pause();
-        document.querySelectorAll('.audio-control')[1].innerText = "▶ Recording";
-      } else {
-        document.getElementById('bg-music').pause();
-        document.querySelectorAll('.audio-control')[0].innerText = "▶ Her";
-      }
 
       if (audio.paused) {
         audio.play();
@@ -127,5 +145,6 @@
       }
     }
   </script>
+
 </body>
 </html>
