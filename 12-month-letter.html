@@ -164,7 +164,7 @@
       initAudio(); // Initialize on first user interaction
       
       // Resume context if suspended (browser security requirement)
-      if (audioContext.state = 'suspended') {
+      if (audioContext.state === 'suspended') {
         audioContext.resume();
       }
 
@@ -172,9 +172,15 @@
 
       if (audio.paused) {
         audio.play();
-        element.innerText = "⏸🎶 " + label;
         
-        if (audioId = 'recording-audio') {
+        // Keep 🎶 permanently on the Her button
+        if (audioId === 'bg-music') {
+          element.innerText = "⏸🎶 Her";
+        } else {
+          element.innerText = "⏸ " + label;
+        }
+        
+        if (audioId === 'recording-audio') {
           if (bgMusic.paused) {
             bgMusic.play();
             herBtn.innerText = "⏸🎶 Her";
@@ -183,7 +189,13 @@
         }
       } else {
         audio.pause();
-        element.innerText = "▶ " + label;
+        
+        // Keep 🎶 permanently on the Her button
+        if (audioId === 'bg-music') {
+          element.innerText = "▶🎶 Her";
+        } else {
+          element.innerText = "▶ " + label;
+        }
         
         if (audioId === 'recording-audio') {
           if (bgMusicGain) bgMusicGain.gain.value = 1.0; // Restore volume
