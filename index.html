@@ -109,8 +109,8 @@
         }
 
         // Determine singular or plural labels
-        const yearLabel = years = 1 ? 'Year' : 'Years';
-        const monthLabel = months = 1 ? 'Month' : 'Months';
+        const yearLabel = years === 1 ? 'Year' : 'Years';
+        const monthLabel = months === 1 ? 'Month' : 'Months';
         const dayLabel = days === 1 ? 'Day' : 'Days';
 
         document.getElementById('anniversary-clock').innerText = 
